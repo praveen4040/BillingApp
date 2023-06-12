@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior='single'>
+        <item
+            android:id="@+id/business_slt"
+            android:title="Select Business"/>
+        <item
+            android:id="@+id/amtCalculate"
+            android:title="Calculate Amount"/>
+        <item
+            android:id="@+id/benAdd"
+            android:title="Add Beneficiary"/>
+
+        <item
+            android:id="@+id/genBill"
+            android:title="Generate Bill"/>
+        <item
+            android:id="@+id/reports"
+            android:title="Reports"/>
+    </group>
+
+</menu>

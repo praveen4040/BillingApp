@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/bene_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="74dp"
+        android:layout_marginBottom="678dp"
+        android:text="ADD BENEFICIARY"
+        android:textSize="30sp"
+        app:fontFamily="@font/architects_daughter" />
+
+    <TextView
+        android:id="@+id/shop_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="266dp"
+        android:layout_marginBottom="571dp"
+        android:text="Shop Name"
+        android:textSize="24sp"
+        app:fontFamily="@font/aleo" />
+
+    <TextView
+        android:id="@+id/address_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="295dp"
+        android:layout_marginBottom="483dp"
+        android:text="Address"
+        android:textSize="24sp"
+        app:fontFamily="@font/aleo" />
+
+    <EditText
+        android:id="@+id/shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="559dp"
+        android:ems="10"
+        android:hint="Enter Shop name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="474dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter full Address "
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/gst_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="313dp"
+        android:layout_marginBottom="383dp"
+        android:text="GST"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/mobile_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="287dp"
+        android:layout_marginBottom="294dp"
+        android:text="MOBILE"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/gst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="373dp"
+        android:ems="10"
+        android:hint="Enter GST details"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/phone_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="291dp"
+        android:ems="10"
+        android:hint="Enter phone Number"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/bene_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="155dp"
+        android:backgroundTint="#48A145"
+        android:text="Submit" />
+
+</RelativeLayout>
