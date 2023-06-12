@@ -513,13 +513,42 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="165dp"
+                            android:layout_marginEnd="250dp"
                             android:backgroundTint="#48A145"
                             android:text="Generate Bill" />
+                        <Button
+                            android:id="@+id/amt_find"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="90dp"
+                            android:backgroundTint="#48A145"
+                            android:text="Find Bill" />
 
                     </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:padding="20dp">
 
-
+                        <Button
+                            android:id="@+id/amt_update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="250dp"
+                            android:backgroundTint="#48A145"
+                            android:text="Update" />
+                        <Button
+                            android:id="@+id/amt_delete"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginEnd="80dp"
+                            android:backgroundTint="#48A145"
+                            android:text="Delete" />
+                    </RelativeLayout>
                 </LinearLayout>
 
         </ScrollView>

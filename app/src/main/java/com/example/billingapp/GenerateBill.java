@@ -33,6 +33,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentResultListener;
 
+import com.parse.DeleteCallback;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -53,7 +54,7 @@ public class GenerateBill extends Fragment{
     private static final int PERMISSION_REQUEST_CODE = 200;
     EditText type,shop,bamt,aamt,sgst,cgst,wgt,rate,stringp,date,inv_id;
     ImageView bill,shop_list,cal;
-    Button submit;
+    Button submit,find,update,delete;
     String table_name,address,gst;
     int billId=0;
     public GenerateBill() {
@@ -172,6 +173,111 @@ public class GenerateBill extends Fragment{
             }
         });
 
+        find=view.findViewById(R.id.amt_find);
+        find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int billId=Integer.parseInt(inv_id.getText().toString());
+                ParseQuery<ParseObject> q=ParseQuery.getQuery(table_name);
+                q.whereEqualTo("invoice",billId);
+                q.getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if(e==null)
+                        {
+                            type.setText(object.getString("bill_type"));
+                            date.setText(object.getString("date"));
+                            shop.setText(object.getString("shopName"));
+                            stringp.setText(object.getString("desc"));
+                            wgt.setText(String.valueOf(object.getDouble("weight")));
+                            rate.setText(String.valueOf(object.getDouble("rate")));
+                            bamt.setText(String.valueOf(object.getDouble("amount")));
+                            cgst.setText(String.valueOf(object.getDouble("cgst")));
+                            sgst.setText(String.valueOf(object.getDouble("sgst")));
+                            aamt.setText(String.valueOf(object.getDouble("tot")));
+
+                        }
+                    }
+                });
+            }
+        });
+        update=view.findViewById(R.id.amt_update);
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Double inv=Double.parseDouble(inv_id.getText().toString());
+                ParseQuery<ParseObject> q=ParseQuery.getQuery(table_name);
+                q.whereEqualTo("invoice",inv);
+                q.getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if(e==null)
+                        {
+                            String objectId=object.getObjectId().toString();
+                            q.getInBackground(objectId, new GetCallback<ParseObject>() {
+                                @Override
+                                public void done(ParseObject object, ParseException e) {
+                                    if(e==null)
+                                    {
+                                        object.put("invoice",Integer.parseInt(inv_id.getText().toString()));
+                                        object.put("date",date.getText().toString());
+                                        object.put("bill_type",type.getText().toString());
+                                        object.put("shopName",shop.getText().toString());
+                                        object.put("desc",stringp.getText().toString());
+                                        object.put("weight",Double.parseDouble(wgt.getText().toString()));
+                                        object.put("rate",Double.parseDouble(rate.getText().toString()));
+                                        object.put("amount",Double.parseDouble(bamt.getText().toString()));
+                                        object.put("cgst",Double.parseDouble(cgst.getText().toString()));
+                                        object.put("sgst",Double.parseDouble(sgst.getText().toString()));
+                                        object.put("tot",Double.parseDouble(aamt.getText().toString()));
+
+
+                                        object.saveInBackground(new SaveCallback() {
+                                            @Override
+                                            public void done(ParseException e) {
+                                                if (e == null) {
+
+                                                    Toast.makeText(getContext(), "Bill Updated successfully", Toast.LENGTH_SHORT).show();
+                                                } else {
+                                                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        delete=view.findViewById(R.id.amt_delete);
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ParseQuery<ParseObject> q=ParseQuery.getQuery(table_name);
+                q.whereEqualTo("invoice",Double.parseDouble(inv_id.getText().toString()));
+                q.whereEqualTo("date",date.getText().toString());
+                q.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(List<ParseObject> objects, ParseException e) {
+                        if(e==null)
+                        {
+                            objects.get(0).deleteInBackground(new DeleteCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if(e==null)
+                                    {
+                                        Toast.makeText(getContext(), "Deleted Successfully...", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });
 
         PopupMenu shopList=new PopupMenu(getContext(),shop_list);
         ParseQuery<ParseObject> query= ParseQuery.getQuery("customer");

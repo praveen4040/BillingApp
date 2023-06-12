@@ -120,9 +120,45 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
 
-        android:layout_marginEnd="163dp"
-        android:layout_marginBottom="155dp"
+        android:layout_marginEnd="264dp"
+        android:layout_marginBottom="160dp"
         android:backgroundTint="#48A145"
         android:text="Submit" />
+
+    <Button
+        android:id="@+id/bene_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="69dp"
+        android:backgroundTint="#48A145"
+        android:text="Update" />
+
+    <Button
+        android:id="@+id/bene_find"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="152dp"
+        android:backgroundTint="#48A145"
+        android:text="Find" />
+
+    <Button
+        android:id="@+id/bene_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="#48A145"
+        android:text="Delete" />
 
 </RelativeLayout>
