@@ -243,6 +243,7 @@ public class GenerateBill extends Fragment{
                                                 }
                                             }
                                         });
+                                        createPdf(table_name);
                                     }
                                 }
                             });
@@ -360,6 +361,8 @@ public class GenerateBill extends Fragment{
         });
         return view;
     }
+
+
 
     private void createPdf(String db)
     {
