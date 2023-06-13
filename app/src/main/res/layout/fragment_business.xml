@@ -24,7 +24,7 @@
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="441dp"
         android:backgroundTint="#48A145"
-        android:text="SRI RAMAJAYAM JEWELLERS" />
+        android:text="B1" />
 
     <Button
         android:id="@+id/dt"
@@ -35,7 +35,7 @@
         android:layout_marginEnd="95dp"
         android:layout_marginBottom="273dp"
         android:backgroundTint="#48A145"
-        android:text="DHANALAKSHMI TRADERS" />
+        android:text="B2" />
 
 
 </RelativeLayout>

@@ -372,28 +372,11 @@ public class GenerateBill extends Fragment{
         } else {
             requestPermission();
         }
+
         String directory_path;
         String  bank,branch,ac,ifcs,name,gs;
         Bitmap icon;
-        if(db=="srj")
-        {
-            directory_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/srj/";
-             name="SRI RAMAJAYAM JEWELLERS";
-             bank="State Bank of India";
-             branch="Ammapet,Salem";
-             ac="31910930827";
-             ifcs="SBIN0012772";
-             gs="33AVPPB5229E1ZU";
-        }
-        else{
-            directory_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/dt/";
-            name="DHANALAKSHMI TRADERS";
-            bank="Karur Vysya Bank";
-            branch="Salem Main Branch";
-            ac="1186135000015963";
-            ifcs="KVBL0001186";
-            gs="33GFNPD9269E1Z5";
-        }
+        directory_path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+"";
 
         PdfDocument mypdf=new PdfDocument();
         Paint paint=new Paint();
@@ -410,16 +393,14 @@ public class GenerateBill extends Fragment{
         title.setColor(Color.BLACK);
         title.setTypeface(Typeface.create(Typeface.DEFAULT,Typeface.BOLD));
         title.setTextSize(30f);
-        c.drawText(name,230,100,title);
+//        c.drawText(name,230,100,title);
         title.setTextSize(15f);
         c.drawText(type.getText().toString(),350,180,title);
         c.drawText("Fancy Silver Chains manufactures and order suppliers".toUpperCase(Locale.ROOT),200,120,title);
         paint.setColor(Color.BLACK);
         paint.setTextSize(15f);
-        c.drawText("289,Puthumariamman Kovil Street,Anna nagar,4th cross",220,140,paint);
-        c.drawText("Ponnammapet,Salem-636001",300,160,paint);
-        c.drawText("Cell: 9789702462",520,60,title);
-        c.drawText(gs,500,180,paint);
+
+
         c.drawLine(50,200,650,200,paint);
         title.setTextSize(15f);
         c.drawText("Invoice Id: ",70,220,title);
@@ -452,13 +433,14 @@ public class GenerateBill extends Fragment{
 
         c.drawText("Bank Details",70,580,title);
         c.drawText("Bank Name: ",70,600,paint);
-        c.drawText(bank,200,600,paint);
-        c.drawText("Bank Branch: ",70,620,paint);
-        c.drawText(branch,200,620,paint);
-        c.drawText("A/c No:  ",70,640,paint);
-        c.drawText(ac,200,640,paint);
-        c.drawText("IFSC Code:  ",70,660,paint);
-        c.drawText(ifcs,200,660,paint);
+        // Add bank Details to these strings
+//        c.drawText(bank,200,600,paint);
+//        c.drawText("Bank Branch: ",70,620,paint);
+//        c.drawText(branch,200,620,paint);
+//        c.drawText("A/c No:  ",70,640,paint);
+//        c.drawText(ac,200,640,paint);
+//        c.drawText("IFSC Code:  ",70,660,paint);
+//        c.drawText(ifcs,200,660,paint);
         c.drawText("Total Rs: ",450,600,paint);
         Double bmt=Double.parseDouble(bamt.getText().toString());
         c.drawText(String.format("%.2f",bmt),550,600,paint);
@@ -469,7 +451,7 @@ public class GenerateBill extends Fragment{
         c.drawText("G.Total Rs: ",450,660,paint);
         c.drawText(aamt.getText().toString(),550,660,paint);
 
-        c.drawText("For "+name,400,700,paint);
+//        c.drawText("For "+name,400,700,paint); add business name
         c.drawText("Authorised Signatory",450,760,paint);
 
 

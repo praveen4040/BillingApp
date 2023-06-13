@@ -2,9 +2,11 @@
     <string name="app_name">BillingApp</string>
     <string name="open">Open Navigation</string>
     <string name="close">Close Navigation</string>
-    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
-    <string name="back4app_app_id">LN4WIu5s05hYRH9hqGoeQa5rFsIeRNSviZli322f</string>
-    <string name="back4app_client_key">CxThOEEU9YgI1muIXCx0HKoeebhak2ksuEzS8hei</string>
+
+    <!--   Define the credentials from back4app parse db-->
+    <string name="back4app_server_url"></string>
+    <string name="back4app_app_id"></string>
+    <string name="back4app_client_key"></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_business">Business</string>
     <!-- Strings used for fragments for navigation -->
