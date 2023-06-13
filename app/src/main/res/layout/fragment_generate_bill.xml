@@ -192,6 +192,18 @@
                         android:layout_toEndOf="@+id/textview1"
                         android:ems="5" />
 
+                    <ImageView
+                        android:id="@+id/idImage"
+                        android:layout_width="66dp"
+                        android:layout_height="51dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="168dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_toEndOf="@+id/textview1"
+                        android:clickable="true"
+                        android:onClick="imageClick"
+                        android:src="@drawable/ic_round_confirmation_number_24" />
+
                 </RelativeLayout>
 
                 <!-- Repeat the above RelativeLayout for TextView and EditText 3-10 -->
@@ -232,7 +244,7 @@
                         android:layout_toEndOf="@+id/textview2"
                         android:clickable="true"
                         android:onClick="imageClick"
-                        android:src="@drawable/ic_twotone_calendar_today_24"/>
+                        android:src="@drawable/ic_twotone_calendar_today_24" />
 
                 </RelativeLayout>
 

@@ -53,7 +53,7 @@ public class GenerateBill extends Fragment{
 
     private static final int PERMISSION_REQUEST_CODE = 200;
     EditText type,shop,bamt,aamt,sgst,cgst,wgt,rate,stringp,date,inv_id;
-    ImageView bill,shop_list,cal;
+    ImageView bill,shop_list,cal,idImage;
     Button submit,find,update,delete;
     String table_name,address,gst;
     int billId=0;
@@ -88,7 +88,7 @@ public class GenerateBill extends Fragment{
         stringp=view.findViewById(R.id.stringp);
         sgst=view.findViewById(R.id.sgst);
         cgst=view.findViewById(R.id.cgst);
-
+        idImage=view.findViewById(R.id.idImage);
         shop=view.findViewById(R.id.shop);
         rate=view.findViewById(R.id.rate);
         date=view.findViewById(R.id.date);
@@ -101,7 +101,8 @@ public class GenerateBill extends Fragment{
                 Log.d("database",table_name);
             }
         });
-        inv_id.setOnClickListener(new View.OnClickListener() {
+
+        idImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -236,14 +237,14 @@ public class GenerateBill extends Fragment{
                                             @Override
                                             public void done(ParseException e) {
                                                 if (e == null) {
-
+                                                    createPdf(table_name);
                                                     Toast.makeText(getContext(), "Bill Updated successfully", Toast.LENGTH_SHORT).show();
                                                 } else {
                                                     Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         });
-                                        createPdf(table_name);
+
                                     }
                                 }
                             });
@@ -427,6 +428,8 @@ public class GenerateBill extends Fragment{
         c.drawText("To: ",70,240,title);
         String ad[]=address.split(",");
         int j=240;
+        c.drawText("Date",370,j,paint);
+        c.drawText(date.getText().toString(),500,j,paint);
         for(int i=0;i<ad.length;i++)
         {
             c.drawText(ad[i],200,j,paint);
@@ -458,7 +461,8 @@ public class GenerateBill extends Fragment{
         c.drawText("IFSC Code:  ",70,660,paint);
         c.drawText(ifcs,200,660,paint);
         c.drawText("Total Rs: ",450,600,paint);
-        c.drawText(bamt.getText().toString(),550,600,paint);
+        Double bmt=Double.parseDouble(bamt.getText().toString());
+        c.drawText(String.format("%.2f",bmt),550,600,paint);
         c.drawText("CGST : ",450,620,paint);
         c.drawText(cgst.getText().toString(),550,620,paint);
         c.drawText("SGST : ",450,640,paint);
