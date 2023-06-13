@@ -410,10 +410,9 @@ public class GenerateBill extends Fragment{
         title.setColor(Color.BLACK);
         title.setTypeface(Typeface.create(Typeface.DEFAULT,Typeface.BOLD));
         title.setTextSize(30f);
-
         c.drawText(name,230,100,title);
-        c.drawText(type.getText().toString(),350,180,paint);
         title.setTextSize(15f);
+        c.drawText(type.getText().toString(),350,180,title);
         c.drawText("Fancy Silver Chains manufactures and order suppliers".toUpperCase(Locale.ROOT),200,120,title);
         paint.setColor(Color.BLACK);
         paint.setTextSize(15f);
@@ -428,8 +427,8 @@ public class GenerateBill extends Fragment{
         c.drawText("To: ",70,240,title);
         String ad[]=address.split(",");
         int j=240;
-        c.drawText("Date",370,j,paint);
-        c.drawText(date.getText().toString(),500,j,paint);
+        c.drawText("Date",500,j,paint);
+        c.drawText(date.getText().toString(),540,j,paint);
         for(int i=0;i<ad.length;i++)
         {
             c.drawText(ad[i],200,j,paint);
@@ -486,7 +485,7 @@ public class GenerateBill extends Fragment{
             Toast.makeText(getContext(), "Done", Toast.LENGTH_LONG).show();
         } catch (IOException e) {
             Log.e("main", "error "+e.toString());
-            Toast.makeText(getContext(), "Something wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Something went wrong: " + e.toString(),  Toast.LENGTH_LONG).show();
         }
 
 
